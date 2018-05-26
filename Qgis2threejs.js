@@ -786,46 +786,46 @@ limitations:
     return html;
   };
 
-  app.popup = {
+  // app.popup = {
 
-    modal: false,
+  //   modal: false,
 
-    // show box
-    // obj: html or element
-    show: function (obj, title, modal) {
+  //   // show box
+  //   // obj: html or element
+  //   show: function (obj, title, modal) {
 
-      if (modal) app.pause();
-      else if (this.modal) app.resume();
+  //     if (modal) app.pause();
+  //     else if (this.modal) app.resume();
 
-      this.modal = Boolean(modal);
+  //     this.modal = Boolean(modal);
 
-      var content = Q3D.$("popupcontent");
-      if (obj === undefined) {
-        // show page info
-        content.style.display = "none";
-        Q3D.$("pageinfo").style.display = "block";
-      }
-      else {
-        Q3D.$("pageinfo").style.display = "none";
-        if (obj instanceof HTMLElement) {
-          content.innerHTML = "";
-          content.appendChild(obj);
-        }
-        else {
-          content.innerHTML = obj;
-        }
-        content.style.display = "block";
-      }
-      Q3D.$("popupbar").innerHTML = title || "";
-      Q3D.$("popup").style.display = "block";
-    },
+  //     var content = Q3D.$("popupcontent");
+  //     if (obj === undefined) {
+  //       // show page info
+  //       content.style.display = "none";
+  //       Q3D.$("pageinfo").style.display = "block";
+  //     }
+  //     else {
+  //       Q3D.$("pageinfo").style.display = "none";
+  //       if (obj instanceof HTMLElement) {
+  //         content.innerHTML = "";
+  //         content.appendChild(obj);
+  //       }
+  //       else {
+  //         content.innerHTML = obj;
+  //       }
+  //       content.style.display = "block";
+  //     }
+  //     Q3D.$("popupbar").innerHTML = title || "";
+  //     Q3D.$("popup").style.display = "block";
+  //   },
 
-    hide: function () {
-      Q3D.$("popup").style.display = "none";
-      if (this.modal) app.resume();
-    }
+  //   hide: function () {
+  //     Q3D.$("popup").style.display = "none";
+  //     if (this.modal) app.resume();
+  //   }
 
-  };
+  // };
 
   app.showInfo = function () {
     Q3D.$("urlbox").value = app.currentViewUrl();
@@ -995,37 +995,37 @@ limitations:
     app.highlightObject = clone;
   };
 
-  app.canvasClicked = function (e) {
-    var canvasOffset = app._offset(app.renderer.domElement);
-    var objs = app.intersectObjects(e.clientX - canvasOffset.left, e.clientY - canvasOffset.top);
-    var obj, pt;
+  // app.canvasClicked = function (e) {
+  //   var canvasOffset = app._offset(app.renderer.domElement);
+  //   var objs = app.intersectObjects(e.clientX - canvasOffset.left, e.clientY - canvasOffset.top);
+  //   var obj, pt;
 
-    for (var i = 0, l = objs.length; i < l; i++) {
-      obj = objs[i];
+  //   for (var i = 0, l = objs.length; i < l; i++) {
+  //     obj = objs[i];
 
-      // query marker
-      pt = {x: obj.point.x, y: -obj.point.z, z: obj.point.y};  // obj's coordinate system is y-up
-      app.queryMarker.position.set(pt.x, pt.y, pt.z);              // this is z-up
-      app.queryMarker.visible = true;
-      app.queryMarker.updateMatrixWorld();
+  //     // query marker
+  //     pt = {x: obj.point.x, y: -obj.point.z, z: obj.point.y};  // obj's coordinate system is y-up
+  //     app.queryMarker.position.set(pt.x, pt.y, pt.z);              // this is z-up
+  //     app.queryMarker.visible = true;
+  //     app.queryMarker.updateMatrixWorld();
 
-      // get layerId of clicked object
-      var layerId, object = obj.object;
-      while (object) {
-        layerId = object.userData.layerId;
-        if (layerId !== undefined) break;
-        object = object.parent;
-      }
+  //     // get layerId of clicked object
+  //     var layerId, object = obj.object;
+  //     while (object) {
+  //       layerId = object.userData.layerId;
+  //       if (layerId !== undefined) break;
+  //       object = object.parent;
+  //     }
 
-      app.highlightFeature(object);
-      app.showQueryResult(pt, object);
+  //     app.highlightFeature(object);
+  //     app.showQueryResult(pt, object);
 
-      app.render();
+  //     app.render();
 
-      return;
-    }
-    app.closePopup();
-  };
+  //     return;
+  //   }
+  //   app.closePopup();
+  // };
 
   app.saveCanvasImage = function (width, height, fill_background, saveImageFunc) {
     if (fill_background === undefined) fill_background = true;
