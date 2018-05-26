@@ -1,6 +1,6 @@
 # Kasotochi-3d
 
-WebGL visualization of Kasotchi Island, Alaska, made using the [Qgis2threejs](https://github.com/minorua/Qgis2threejs) plugin for [QGIS](https://qgis.org/en/site/).
+WebGL visualization of Kasotochi Island, Alaska, made using the [Qgis2threejs](https://github.com/minorua/Qgis2threejs) plugin for [QGIS](https://qgis.org/en/site/).
 
 ### Data
 
